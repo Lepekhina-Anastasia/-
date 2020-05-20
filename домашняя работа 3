@@ -1,0 +1,121 @@
+using namespace std;
+class Person {
+private:
+    string
+        Phone_number,
+        Email_Adress;
+public:
+    string 
+        name;
+};
+class Adress:Person {
+public:
+    string
+        street,
+        city,
+        state,
+        coutry;
+    int postal_code;
+};
+
+
+class Student: public Person {
+private: int
+    avarage_mark;
+       
+public:
+    int
+        Student_number;
+    string kkk;
+    Student(int Student_number1, int avarage_mark1) {
+        Student_number = Student_number1;
+        avarage_mark = avarage_mark1;}
+        void std(){
+            cout << "If you want to add student write student"; cin >> kkk;
+            if (kkk == "student") {
+                cout << "Enter student's number "; cin >> Student_number;
+                cout << "Enter student's average mark "; cin >> avarage_mark;
+            }
+    
+       
+    }
+
+};
+union MIREA{
+    class Student;
+    class Worker;
+} ;
+    
+
+
+class Worker : public Person {
+private:
+    int
+        experience,
+        hourly_wag,
+        has_worked,
+        salary,
+        premy;
+    string kkk;
+public:
+    Worker(string name1, int experience1, int hourly_wag1, int has_worked1)
+    {
+        name = name1;
+        experience = experience1;
+        hourly_wag = hourly_wag1;
+        has_worked = has_worked1;
+        
+    }
+    
+    void message() {
+        salary = hourly_wag * has_worked;
+        if (experience <= 1)
+            premy = 0 * salary;
+        if (experience <= 3)
+            premy = salary * 5 / 100;
+        if (experience <= 5)
+            premy = salary * 8 / 100;
+        if (experience > 5)
+            premy = salary * 8 / 100;
+        cout << name;
+        cout << "\n Experience is "<< experience;
+        cout << "\n Hourly wag is "<<hourly_wag << "\n";
+        cout << name << "has worked " << has_worked;
+        cout << "\n Salary is " << salary;
+        cout << "\n Premy is "<< premy <<"\n" ;
+
+            cout << "If  you want to add a worker write worker"; cin >> kkk;
+            if (kkk == "student") {
+                cout << "Enter worker's name "; cin >> name;
+                cout << "\n Enter worker's experience "; cin >> experience;
+                cout << "\n Enter worker's hourly wag "; cin >> hourly_wag;
+                cout << "\n Enter how much " << name << " has worked "; cin >> has_worked;
+            };
+    }
+};
+int main(int argc, char* argv[])
+{
+    string
+        name;
+    int
+        experience,
+        hourly_wag,
+        has_worked,
+        salary,
+        premy,
+        Student_number,
+        avarage_mark;
+
+    cout << "Enter worker's name "; cin >> name;
+    cout << "\n Enter worker's experience "; cin >> experience;
+    cout << "\n Enter worker's hourly wag "; cin >> hourly_wag;
+    cout << "\n Enter how much " << name << " has worked "; cin >> has_worked; 
+    cout << "Enter student's number "; cin >> Student_number;
+    cout << "Enter student's average mark "; cin >> avarage_mark;
+        Worker objWorker(name, experience,hourly_wag, has_worked);
+        objWorker.message();
+        Student objStudent(Student_number, avarage_mark);
+        objStudent.std();
+    system("pause");
+    return 0;
+}
